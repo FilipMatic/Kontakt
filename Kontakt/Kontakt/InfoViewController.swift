@@ -44,7 +44,7 @@ class InfoViewController: UIViewController
         address.text = ""
     }
     
-    override func viewDidLoad()
+    override func viewDidLoad() //additional setup
     {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(red: 153.0/255.0, green: 204.0/255.0, blue: 240.0/255.0, alpha: 1.0)
@@ -53,8 +53,6 @@ class InfoViewController: UIViewController
         phoneNumber.delegate = self
         email.delegate = self
         address.delegate = self
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning()
@@ -90,18 +88,6 @@ class InfoViewController: UIViewController
         
         displayScreen.text = info
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension InfoViewController : UITextFieldDelegate

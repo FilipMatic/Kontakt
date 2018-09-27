@@ -114,7 +114,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wNF-iP-sk3">
-                                <rect key="frame" x="55" y="162" width="265" height="182"/>
+                                <rect key="frame" x="55" y="146" width="265" height="182"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jv5-5J-wQ1" userLabel="First Name Text Field">
                                         <rect key="frame" x="0.0" y="0.0" width="265" height="30"/>
@@ -166,7 +166,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PX0-8e-7Oc">
-                                <rect key="frame" x="55" y="394" width="265" height="178"/>
+                                <rect key="frame" x="55" y="378" width="265" height="194"/>
                                 <color key="backgroundColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -212,6 +212,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backLakersColours" width="64" height="64"/>
+        <image name="backLakersColours" width="48" height="48"/>
     </resources>
 </document>
