@@ -36,6 +36,8 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>We need to access your camera for scanning QR codes</string>
+	<key>NSContactsUsageDescription</key>
+	<string>We need to access your contacts</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

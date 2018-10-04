@@ -9,71 +9,53 @@
 import UIKit
 import AVFoundation
 
-class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
+{
     
-    var captureSession:AVCaptureSession?
-    var videoPreviewLayer:AVCaptureVideoPreviewLayer?
-    var qrCodeFrameView:UIView?
+    var video = AVCaptureVideoPreviewLayer()
     
-    @IBAction func HomeScreenButton(_ sender: Any)
-    {
-        dismiss(animated: true, completion: nil)
-    }
+    @IBOutlet weak var cameraView: UIView!
     
-    override func viewDidLoad() //additional setup
+//    @IBAction func HomeScreenButton(_ sender: Any)
+//    {
+//        dismiss(animated: true, completion: nil)
+//    }
+    
+    override func viewDidLoad()
     {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(red: 153.0/255.0, green: 204.0/255.0, blue: 240.0/255.0, alpha: 1.0)
-        // Get the back-facing camera for capturing videos
-        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
-        guard let captureDevice = deviceDiscoverySession.devices.first else {
-            print("Failed to get the camera device")
-            return
+        cameraView.backgroundColor = .clear
+        
+        print("entering")
+        
+        //Create session
+        let session = AVCaptureSession()
+        //Capture device
+        let captureDevice = AVCaptureDevice.default(for: .video)
+        
+        do
+        {
+            let input = try AVCaptureDeviceInput(device: captureDevice!)
+            session.addInput(input)
+        }
+        catch
+        {
+            print("error")
         }
         
-        do {
-            // Get an instance of the AVCaptureDeviceInput class using the previous device object.
-            let input = try AVCaptureDeviceInput(device: captureDevice)
-            
-            // Set the input device on the capture session.
-            captureSession?.addInput(input)
-            
-            // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
-            let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession?.addOutput(captureMetadataOutput)
-            
-            // Set delegate and use the default dispatch queue to execute the call back
-            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
-            
-            // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
-            view.layer.addSublayer(videoPreviewLayer!)
-
-            // Start video capture.
-            captureSession?.startRunning()
-            
-            // Move the message label and top bar to the front
-//            view.bringSubview(toFront: messageLabel)
-//            view.bringSubview(toFront: topbar)
-            
-            // Initialize QR Code Frame to highlight the QR code
-            qrCodeFrameView = UIView()
-            
-            if let qrCodeFrameView = qrCodeFrameView {
-                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-                qrCodeFrameView.layer.borderWidth = 2
-                view.addSubview(qrCodeFrameView)
-                view.bringSubview(toFront: qrCodeFrameView)
-            }
-            
-        } catch {
-            // If any error occurs, simply print it out and don't continue any more.
-            print(error)
-            return
-        }
+        let output = AVCaptureMetadataOutput()
+        session.addOutput(output)
+        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+        video = AVCaptureVideoPreviewLayer(session: session)
+//        video.frame = cameraView.layer.bounds
+        video.frame = self.view.layer.bounds
+        cameraView.layer.addSublayer(video)
+        
+        
+        print("running session")
+//        session.startRunning()
     }
 
 
