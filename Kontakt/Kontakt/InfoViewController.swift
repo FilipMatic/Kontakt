@@ -24,6 +24,8 @@ class InfoViewController: UIViewController
     
     @IBOutlet weak var displayScreen: UITextView!
     
+    @IBOutlet weak var qrCodeImage: UIImageView!
+    
     @IBAction func HomeScreenButton(_ sender: Any)
     {
         dismiss(animated: true, completion: nil)
@@ -31,7 +33,8 @@ class InfoViewController: UIViewController
     
     @IBAction func GenerateButton(_ sender: Any)
     {
-        displayScreen.text = "First Name: \(firstName.text!)\nLast Name: \(lastName.text!)\n\nPhone Number: \(phoneNumber.text!)\n\nEmail: \(email.text!)\n\nAddress: \(address.text!)"
+//        displayScreen.text = "First Name: \(firstName.text!)\nLast Name: \(lastName.text!)\n\nPhone Number: \(phoneNumber.text!)\n\nEmail: \(email.text!)\n\nAddress: \(address.text!)"
+        displayScreen.text = "\(firstName.text!)\n\(lastName.text!)\n\(phoneNumber.text!)\n\(email.text!)\n\(address.text!)"
         UserDefaults.standard.set(firstName.text, forKey: "firstName")
         firstName.text = ""
         UserDefaults.standard.set(lastName.text, forKey: "lastName")
@@ -42,6 +45,25 @@ class InfoViewController: UIViewController
         email.text = ""
         UserDefaults.standard.set(address.text, forKey: "address")
         address.text = ""
+        
+        if let firstNameString = firstName.text {
+            let firstNameData = firstNameString.data(using: .ascii, allowLossyConversion: false)
+            
+        }
+        
+//        let allInfo = "\(firstName.text!)\n\(lastName.text!)\n\(phoneNumber.text!)\n\(email.text!)\n\(address.text!)"
+        
+        if let infoString = displayScreen.text {
+            let infoData = infoString.data(using: .ascii, allowLossyConversion: false)
+            let infoFilter = CIFilter(name: "CIQRCodeGenerator")
+            infoFilter?.setValue(infoData, forKey: "inputMessage")
+            
+            let infoImage = UIImage(ciImage: (infoFilter?.outputImage)!)
+            
+            qrCodeImage.image = infoImage
+            
+        }
+        
     }
     
     override func viewDidLoad() //additional setup

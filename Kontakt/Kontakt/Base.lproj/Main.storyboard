@@ -28,7 +28,7 @@
                                     <action selector="infoScreenButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CWR-KP-4RJ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yEF-J6-QQz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youngBrandonIngram" translatesAutoresizingMaskIntoConstraints="NO" id="yEF-J6-QQz">
                                 <rect key="frame" x="62" y="127" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="ZuW-fc-MXP"/>
@@ -190,6 +190,11 @@
                                     <action selector="HomeScreenButton:" destination="PUs-ov-iKY" eventType="touchUpInside" id="aYO-D8-meT"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7bA-FF-tid">
+                                <rect key="frame" x="67" y="361" width="240" height="223"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.14405453870000001" green="0.52281741349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -215,6 +220,7 @@
                         <outlet property="firstName" destination="Jv5-5J-wQ1" id="dUm-ni-Z6F"/>
                         <outlet property="lastName" destination="h2Y-yK-Yn1" id="FvW-Vy-HOk"/>
                         <outlet property="phoneNumber" destination="3WT-GN-Ie2" id="rXf-uv-VLw"/>
+                        <outlet property="qrCodeImage" destination="7bA-FF-tid" id="Ay3-HV-J7t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReM-Re-jSv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -224,5 +230,6 @@
     </scenes>
     <resources>
         <image name="backLakersColours" width="48" height="48"/>
+        <image name="youngBrandonIngram" width="240" height="144"/>
     </resources>
 </document>
