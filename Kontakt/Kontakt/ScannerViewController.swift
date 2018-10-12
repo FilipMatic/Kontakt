@@ -14,7 +14,17 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     var video = AVCaptureVideoPreviewLayer()
     
+    var contactInfoData = ""
+//    var contactInfoDataSplit : [String] = []
+    var firstNameSplit = ""
+    var lastNameSplit = ""
+    var phoneNumberSplit = ""
+    var emailSplit = ""
+    var addressSplit = ""
+    
     @IBOutlet weak var cameraView: UIView!
+    
+    @IBOutlet weak var infoTextView: UILabel!
     
     @IBAction func HomeScreenButton(_ sender: Any)
     {
@@ -59,17 +69,31 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         session.startRunning()
     }
     
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        if (metadataObjects != nil) && (metadataObjects.count != 0) {
-            if let object = metadataObjects[0] as? AVMetadataMachineReadableCodeObject {
-                if object.type == AVMetadataObject.ObjectType.qr {
-                    let alert = UIAlertController(title: "Your code is:", message: object.stringValue, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Retake", style: .default, handler: nil)) 
-                    alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
-                        UIPasteboard.general.string = object.stringValue
-                    }))
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection)
+    {
+        if (metadataObjects != nil) && (metadataObjects.count != 0)
+        {
+            if let object = metadataObjects[0] as? AVMetadataMachineReadableCodeObject
+            {
+                if object.type == AVMetadataObject.ObjectType.qr
+                {
+                    let alert = UIAlertController(title: "Contact Detected", message: object.stringValue, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//                    alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
+//                        UIPasteboard.general.string = object.stringValue
+//                    }))
                     present(alert, animated: true, completion: nil)
                 }
+                
+                contactInfoData = object.stringValue! //THIS IS IMPORTANTE
+                let contactInfoDataSplit = contactInfoData.split(separator: ",")
+                
+                firstNameSplit = String(contactInfoDataSplit[0])
+                lastNameSplit = String(contactInfoDataSplit[1])
+                phoneNumberSplit = String(contactInfoDataSplit[2])
+                emailSplit = String(contactInfoDataSplit[3])
+                addressSplit = String(contactInfoDataSplit[4])
+                
             }
         }
     }

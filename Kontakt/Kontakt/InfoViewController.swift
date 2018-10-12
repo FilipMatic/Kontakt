@@ -34,7 +34,7 @@ class InfoViewController: UIViewController
     @IBAction func GenerateButton(_ sender: Any)
     {
 //        displayScreen.text = "First Name: \(firstName.text!)\nLast Name: \(lastName.text!)\n\nPhone Number: \(phoneNumber.text!)\n\nEmail: \(email.text!)\n\nAddress: \(address.text!)"
-        displayScreen.text = "\(firstName.text!)\n\(lastName.text!)\n\(phoneNumber.text!)\n\(email.text!)\n\(address.text!)"
+        displayScreen.text = "\(firstName.text!),\(lastName.text!),\(phoneNumber.text!),\(email.text!),\(address.text!)"
         UserDefaults.standard.set(firstName.text, forKey: "firstName")
         firstName.text = ""
         UserDefaults.standard.set(lastName.text, forKey: "lastName")
