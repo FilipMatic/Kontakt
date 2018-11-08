@@ -1,0 +1,6 @@
+framework module Pods_Kontakt {
+  umbrella header "Pods-Kontakt-umbrella.h"
+
+  export *
+  module * { export * }
+}
