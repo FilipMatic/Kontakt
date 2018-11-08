@@ -14,6 +14,8 @@
 		1438B99E214B55C4007FE21A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1438B99C214B55C4007FE21A /* LaunchScreen.storyboard */; };
 		1438B9A9214B55C4007FE21A /* KontaktTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438B9A8214B55C4007FE21A /* KontaktTests.swift */; };
 		1438B9B4214B55C4007FE21A /* KontaktUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438B9B3214B55C4007FE21A /* KontaktUITests.swift */; };
+		144A4BFD219142EC00F8D0B2 /* KontaktCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144A4BFC219142EC00F8D0B2 /* KontaktCoordinator.swift */; };
+		144A4BFF2191435500F8D0B2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144A4BFE2191435500F8D0B2 /* Coordinator.swift */; };
 		149CD1FE214D894C0064A99F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149CD1FD214D894C0064A99F /* InfoViewController.swift */; };
 		14F5178B21586EA3007983E8 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F5178A21586EA3007983E8 /* ScannerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +51,8 @@
 		1438B9AF214B55C4007FE21A /* KontaktUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KontaktUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1438B9B3214B55C4007FE21A /* KontaktUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontaktUITests.swift; sourceTree = "<group>"; };
 		1438B9B5214B55C4007FE21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		144A4BFC219142EC00F8D0B2 /* KontaktCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontaktCoordinator.swift; sourceTree = "<group>"; };
+		144A4BFE2191435500F8D0B2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		149CD1FD214D894C0064A99F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		14F5178A21586EA3007983E8 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				1438B993214B55C1007FE21A /* AppDelegate.swift */,
+				144A4BFE2191435500F8D0B2 /* Coordinator.swift */,
+				144A4BFC219142EC00F8D0B2 /* KontaktCoordinator.swift */,
 				1438B995214B55C1007FE21A /* HomeViewController.swift */,
 				149CD1FD214D894C0064A99F /* InfoViewController.swift */,
 				14F5178A21586EA3007983E8 /* ScannerViewController.swift */,
@@ -264,6 +270,8 @@
 			files = (
 				1438B996214B55C1007FE21A /* HomeViewController.swift in Sources */,
 				149CD1FE214D894C0064A99F /* InfoViewController.swift in Sources */,
+				144A4BFF2191435500F8D0B2 /* Coordinator.swift in Sources */,
+				144A4BFD219142EC00F8D0B2 /* KontaktCoordinator.swift in Sources */,
 				1438B994214B55C1007FE21A /* AppDelegate.swift in Sources */,
 				14F5178B21586EA3007983E8 /* ScannerViewController.swift in Sources */,
 			);

@@ -79,23 +79,23 @@ class InfoViewController: UIViewController {
         infoForCode = ""
         
         if let x = UserDefaults.standard.object(forKey: "firstName") as? String {
-            info += "First Name: \(x)\n"
+            info += "\(x),"
             infoForCode += "\(x),"
         }
         if let y = UserDefaults.standard.object(forKey: "lastName") as? String {
-            info += "Last Name: \(y)\n\n"
+            info += "\(y),"
             infoForCode += "\(y),"
         }
         if let z = UserDefaults.standard.object(forKey: "phoneNumber") as? String {
-            info += "Phone Number: \(z)\n\n"
+            info += "\(z),"
             infoForCode += "\(z),"
         }
         if let q = UserDefaults.standard.object(forKey: "email") as? String {
-            info += "Email: \(q)\n\n"
+            info += "\(q),"
             infoForCode += "\(q),"
         }
         if let w = UserDefaults.standard.object(forKey: "address") as? String {
-            info += "Address: \(w)"
+            info += "\(w)"
             infoForCode += "\(w)"
             
             //need to change this!!!!! THIS IS CHEATING
