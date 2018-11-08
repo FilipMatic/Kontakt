@@ -16,6 +16,7 @@
 		1438B9B4214B55C4007FE21A /* KontaktUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438B9B3214B55C4007FE21A /* KontaktUITests.swift */; };
 		144A4BFD219142EC00F8D0B2 /* KontaktCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144A4BFC219142EC00F8D0B2 /* KontaktCoordinator.swift */; };
 		144A4BFF2191435500F8D0B2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144A4BFE2191435500F8D0B2 /* Coordinator.swift */; };
+		145E5FCB2193E1EE001B76E2 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E5FCA2193E1EE001B76E2 /* Storyboards.swift */; };
 		149CD1FE214D894C0064A99F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149CD1FD214D894C0064A99F /* InfoViewController.swift */; };
 		14F5178B21586EA3007983E8 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F5178A21586EA3007983E8 /* ScannerViewController.swift */; };
 		316D90F9C3BD087EAA9ED177 /* Pods_KontaktUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227D706ED7EB232CEB3F0BB3 /* Pods_KontaktUITests.framework */; };
@@ -56,6 +57,7 @@
 		1438B9B5214B55C4007FE21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		144A4BFC219142EC00F8D0B2 /* KontaktCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontaktCoordinator.swift; sourceTree = "<group>"; };
 		144A4BFE2191435500F8D0B2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		145E5FCA2193E1EE001B76E2 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		149CD1FD214D894C0064A99F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		14F5178A21586EA3007983E8 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		1C7FABD6B17AE3523C4B08D1 /* Pods-Kontakt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kontakt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kontakt/Pods-Kontakt.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				1438B99A214B55C4007FE21A /* Assets.xcassets */,
 				1438B99C214B55C4007FE21A /* LaunchScreen.storyboard */,
 				1438B99F214B55C4007FE21A /* Info.plist */,
+				145E5FC92193E1B9001B76E2 /* SwiftGen */,
 			);
 			path = Kontakt;
 			sourceTree = "<group>";
@@ -152,6 +155,14 @@
 				1438B9B5214B55C4007FE21A /* Info.plist */,
 			);
 			path = KontaktUITests;
+			sourceTree = "<group>";
+		};
+		145E5FC92193E1B9001B76E2 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				145E5FCA2193E1EE001B76E2 /* Storyboards.swift */,
+			);
+			path = SwiftGen;
 			sourceTree = "<group>";
 		};
 		4A7B3A65AB8A318160AE79E1 /* Frameworks */ = {
@@ -374,6 +385,7 @@
 				144A4BFD219142EC00F8D0B2 /* KontaktCoordinator.swift in Sources */,
 				1438B994214B55C1007FE21A /* AppDelegate.swift in Sources */,
 				14F5178B21586EA3007983E8 /* ScannerViewController.swift in Sources */,
+				145E5FCB2193E1EE001B76E2 /* Storyboards.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
