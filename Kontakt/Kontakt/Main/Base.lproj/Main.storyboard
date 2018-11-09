@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Kontakt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="BYZ-38-t0r" customClass="HomeViewController" customModule="Kontakt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +25,7 @@
                                     <color key="titleColor" red="0.58039215686274515" green="0.792156862745098" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="infoScreenButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CWR-KP-4RJ"/>
+                                    <action selector="infoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CWR-KP-4RJ"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youngBrandonIngram" translatesAutoresizingMaskIntoConstraints="NO" id="yEF-J6-QQz">
@@ -42,8 +42,7 @@
                                     <color key="titleColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="scannerScreenButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GEw-iO-2dP"/>
-                                    <segue destination="QKy-2M-Vmb" kind="presentation" identifier="ScannerScreenSeg" id="jsZ-cr-wim"/>
+                                    <action selector="scannerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GEw-iO-2dP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -63,8 +62,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="infoButton" destination="CQS-5v-45D" id="j24-xi-0Oa"/>
                         <outlet property="qrCodeImage" destination="yEF-J6-QQz" id="0um-X6-kof"/>
-                        <segue destination="PUs-ov-iKY" kind="presentation" identifier="InfoScreenSeg" id="FoW-FG-HZu"/>
+                        <outlet property="scannerButton" destination="2Ub-kr-PPR" id="xlZ-Hi-Jzz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -74,7 +74,7 @@
         <!--Scanner View Controller-->
         <scene sceneID="WCC-4C-l86">
             <objects>
-                <viewController id="QKy-2M-Vmb" customClass="ScannerViewController" customModule="Kontakt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Scanner" id="QKy-2M-Vmb" customClass="ScannerViewController" customModule="Kontakt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="neG-kV-n2a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,7 +87,7 @@
                                 </constraints>
                                 <state key="normal" image="backLakersColours"/>
                                 <connections>
-                                    <action selector="HomeScreenButton:" destination="QKy-2M-Vmb" eventType="touchUpInside" id="0YC-0c-gef"/>
+                                    <action selector="homeButtonTapped:" destination="QKy-2M-Vmb" eventType="touchUpInside" id="0YC-0c-gef"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z7Q-ln-Sds">
@@ -116,6 +116,7 @@
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="z7Q-ln-Sds" id="3ro-EO-AYE"/>
+                        <outlet property="homeButton" destination="wsQ-On-uhW" id="zCA-jI-2qp"/>
                         <outlet property="infoTextView" destination="S3T-aF-O0O" id="x50-DD-U9k"/>
                     </connections>
                 </viewController>
@@ -126,7 +127,7 @@
         <!--Info View Controller-->
         <scene sceneID="pEh-GZ-LJc">
             <objects>
-                <viewController id="PUs-ov-iKY" customClass="InfoViewController" customModule="Kontakt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Info" id="PUs-ov-iKY" customClass="InfoViewController" customModule="Kontakt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fRR-Jj-k6r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +180,7 @@
                                     <color key="titleColor" red="0.88183812773907122" green="0.69849606377176243" blue="0.47022062612499699" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="GenerateButton:" destination="PUs-ov-iKY" eventType="touchUpInside" id="sMg-jR-FpC"/>
+                                    <action selector="generateButtonTapped:" destination="PUs-ov-iKY" eventType="touchUpInside" id="sMg-jR-FpC"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PX0-8e-7Oc">
@@ -197,7 +198,7 @@
                                 </constraints>
                                 <state key="normal" image="backLakersColours"/>
                                 <connections>
-                                    <action selector="HomeScreenButton:" destination="PUs-ov-iKY" eventType="touchUpInside" id="aYO-D8-meT"/>
+                                    <action selector="homeButtonTapped:" destination="PUs-ov-iKY" eventType="touchUpInside" id="aYO-D8-meT"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7bA-FF-tid">
@@ -230,6 +231,8 @@
                         <outlet property="displayScreen" destination="PX0-8e-7Oc" id="Wlt-sQ-bwf"/>
                         <outlet property="email" destination="6hf-kc-ptT" id="NBo-BT-Ajt"/>
                         <outlet property="firstName" destination="Jv5-5J-wQ1" id="dUm-ni-Z6F"/>
+                        <outlet property="generateButton" destination="fz1-cP-8ki" id="6Fb-mj-ze4"/>
+                        <outlet property="homeButton" destination="tMX-5b-81D" id="TVE-6S-12U"/>
                         <outlet property="lastName" destination="h2Y-yK-Yn1" id="FvW-Vy-HOk"/>
                         <outlet property="phoneNumber" destination="3WT-GN-Ie2" id="rXf-uv-VLw"/>
                         <outlet property="qrCodeImage" destination="7bA-FF-tid" id="Ay3-HV-J7t"/>

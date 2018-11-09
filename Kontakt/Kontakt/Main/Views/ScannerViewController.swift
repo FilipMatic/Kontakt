@@ -10,19 +10,24 @@ import UIKit
 import AVFoundation
 import Contacts
 
+protocol ScannerCoordinationDelegate: AnyObject {
+    func scannerDidFinishSuccessfully(_ success: Bool)
+}
+
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    
+    weak var scannerDelegate: ScannerCoordinationDelegate?
     
     var session: AVCaptureSession!
     var store: CNContactStore!
     var video = AVCaptureVideoPreviewLayer()
     var previewLayer = AVCaptureVideoPreviewLayer()
     
-    @IBOutlet weak var cameraView: UIView!
+    @IBOutlet var homeButton: UIButton!
+    @IBOutlet var cameraView: UIView!
+    @IBOutlet var infoTextView: UILabel!
     
-    @IBOutlet weak var infoTextView: UILabel!
-    
-    @IBAction func HomeScreenButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func homeButtonTapped(_ sender: UIButton) {
     }
     
     override func viewWillAppear(_ animated: Bool) {

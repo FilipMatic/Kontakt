@@ -8,31 +8,29 @@
 
 import UIKit
 
+protocol InfoCoordinationDelegate: AnyObject {
+    func infoDidFinishSuccessfully(_ success: Bool)
+}
+
 class InfoViewController: UIViewController {
     
-//    var previouslyLoaded = false
-//    var generatedBarcode: UIImage!
+    weak var infoDelegate: InfoCoordinationDelegate?
     
-    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet var homeButton: UIButton!
+    @IBOutlet var generateButton: UIButton!
     
-    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet var firstName: UITextField!
+    @IBOutlet var lastName: UITextField!
+    @IBOutlet var phoneNumber: UITextField!
+    @IBOutlet var email: UITextField!
+    @IBOutlet var address: UITextField!
+    @IBOutlet var displayScreen: UITextView!
+    @IBOutlet var qrCodeImage: UIImageView!
     
-    @IBOutlet weak var phoneNumber: UITextField!
-    
-    @IBOutlet weak var email: UITextField!
-    
-    @IBOutlet weak var address: UITextField!
-    
-    @IBOutlet weak var displayScreen: UITextView!
-    
-    @IBOutlet weak var qrCodeImage: UIImageView!
-    
-    @IBAction func HomeScreenButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func homeButtonTapped(_ sender: UIButton) {
     }
     
-    @IBAction func GenerateButton(_ sender: Any) {
-//        displayScreen.text = "First Name: \(firstName.text!)\nLast Name: \(lastName.text!)\n\nPhone Number: \(phoneNumber.text!)\n\nEmail: \(email.text!)\n\nAddress: \(address.text!)"
+    @IBAction func generateButtonTapped(_ sender: Any) {
         displayScreen.text = "\(firstName.text!),\(lastName.text!),\(phoneNumber.text!),\(email.text!),\(address.text!)"
         UserDefaults.standard.set(firstName.text, forKey: "firstName")
         firstName.text = ""

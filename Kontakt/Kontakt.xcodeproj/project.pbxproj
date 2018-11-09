@@ -11,12 +11,12 @@
 		1438B996214B55C1007FE21A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438B995214B55C1007FE21A /* HomeViewController.swift */; };
 		1438B999214B55C1007FE21A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1438B997214B55C1007FE21A /* Main.storyboard */; };
 		1438B99B214B55C4007FE21A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1438B99A214B55C4007FE21A /* Assets.xcassets */; };
-		1438B99E214B55C4007FE21A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1438B99C214B55C4007FE21A /* LaunchScreen.storyboard */; };
 		1438B9A9214B55C4007FE21A /* KontaktTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438B9A8214B55C4007FE21A /* KontaktTests.swift */; };
 		1438B9B4214B55C4007FE21A /* KontaktUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438B9B3214B55C4007FE21A /* KontaktUITests.swift */; };
 		144A4BFD219142EC00F8D0B2 /* KontaktCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144A4BFC219142EC00F8D0B2 /* KontaktCoordinator.swift */; };
 		144A4BFF2191435500F8D0B2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144A4BFE2191435500F8D0B2 /* Coordinator.swift */; };
 		145E5FCB2193E1EE001B76E2 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E5FCA2193E1EE001B76E2 /* Storyboards.swift */; };
+		145E5FD3219541FA001B76E2 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E5FD2219541FA001B76E2 /* UIViewControllerExtensions.swift */; };
 		149CD1FE214D894C0064A99F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149CD1FD214D894C0064A99F /* InfoViewController.swift */; };
 		14F5178B21586EA3007983E8 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F5178A21586EA3007983E8 /* ScannerViewController.swift */; };
 		316D90F9C3BD087EAA9ED177 /* Pods_KontaktUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227D706ED7EB232CEB3F0BB3 /* Pods_KontaktUITests.framework */; };
@@ -47,7 +47,6 @@
 		1438B995214B55C1007FE21A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1438B998214B55C1007FE21A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1438B99A214B55C4007FE21A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1438B99D214B55C4007FE21A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1438B99F214B55C4007FE21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1438B9A4214B55C4007FE21A /* KontaktTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KontaktTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1438B9A8214B55C4007FE21A /* KontaktTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontaktTests.swift; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		144A4BFC219142EC00F8D0B2 /* KontaktCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontaktCoordinator.swift; sourceTree = "<group>"; };
 		144A4BFE2191435500F8D0B2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		145E5FCA2193E1EE001B76E2 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		145E5FD2219541FA001B76E2 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		149CD1FD214D894C0064A99F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		14F5178A21586EA3007983E8 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		1C7FABD6B17AE3523C4B08D1 /* Pods-Kontakt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kontakt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kontakt/Pods-Kontakt.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,15 +125,11 @@
 			isa = PBXGroup;
 			children = (
 				1438B993214B55C1007FE21A /* AppDelegate.swift */,
-				144A4BFE2191435500F8D0B2 /* Coordinator.swift */,
-				144A4BFC219142EC00F8D0B2 /* KontaktCoordinator.swift */,
-				1438B995214B55C1007FE21A /* HomeViewController.swift */,
-				149CD1FD214D894C0064A99F /* InfoViewController.swift */,
-				14F5178A21586EA3007983E8 /* ScannerViewController.swift */,
-				1438B997214B55C1007FE21A /* Main.storyboard */,
+				145E5FCC2193ED6A001B76E2 /* Main */,
 				1438B99A214B55C4007FE21A /* Assets.xcassets */,
-				1438B99C214B55C4007FE21A /* LaunchScreen.storyboard */,
 				1438B99F214B55C4007FE21A /* Info.plist */,
+				145E5FCE2193EDD5001B76E2 /* Protocols */,
+				145E5FD1219541CD001B76E2 /* Extensions */,
 				145E5FC92193E1B9001B76E2 /* SwiftGen */,
 			);
 			path = Kontakt;
@@ -163,6 +159,42 @@
 				145E5FCA2193E1EE001B76E2 /* Storyboards.swift */,
 			);
 			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		145E5FCC2193ED6A001B76E2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1438B997214B55C1007FE21A /* Main.storyboard */,
+				144A4BFC219142EC00F8D0B2 /* KontaktCoordinator.swift */,
+				145E5FCD2193EDBD001B76E2 /* Views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		145E5FCD2193EDBD001B76E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1438B995214B55C1007FE21A /* HomeViewController.swift */,
+				149CD1FD214D894C0064A99F /* InfoViewController.swift */,
+				14F5178A21586EA3007983E8 /* ScannerViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		145E5FCE2193EDD5001B76E2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				144A4BFE2191435500F8D0B2 /* Coordinator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		145E5FD1219541CD001B76E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				145E5FD2219541FA001B76E2 /* UIViewControllerExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4A7B3A65AB8A318160AE79E1 /* Frameworks */ = {
@@ -295,7 +327,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1438B99E214B55C4007FE21A /* LaunchScreen.storyboard in Resources */,
 				1438B99B214B55C4007FE21A /* Assets.xcassets in Resources */,
 				1438B999214B55C1007FE21A /* Main.storyboard in Resources */,
 			);
@@ -379,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				145E5FD3219541FA001B76E2 /* UIViewControllerExtensions.swift in Sources */,
 				1438B996214B55C1007FE21A /* HomeViewController.swift in Sources */,
 				149CD1FE214D894C0064A99F /* InfoViewController.swift in Sources */,
 				144A4BFF2191435500F8D0B2 /* Coordinator.swift in Sources */,
@@ -427,14 +459,6 @@
 				1438B998214B55C1007FE21A /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1438B99C214B55C4007FE21A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1438B99D214B55C4007FE21A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
