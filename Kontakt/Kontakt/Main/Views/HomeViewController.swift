@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func scannerButtonTapped(_ sender: UIButton) {
+        homeDelegate?.homeDidFinishSuccessfully(false)
     }
     
     override func viewDidLoad() {

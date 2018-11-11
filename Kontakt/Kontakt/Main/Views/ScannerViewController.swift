@@ -28,6 +28,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     @IBOutlet var infoTextView: UILabel!
     
     @IBAction func homeButtonTapped(_ sender: UIButton) {
+        scannerDelegate?.scannerDidFinishSuccessfully(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

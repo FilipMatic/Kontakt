@@ -1,16 +1,25 @@
 PODS:
+  - PhoneNumberKit (2.5.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 2.5.0)
+    - PhoneNumberKit/UIKit (= 2.5.0)
+  - PhoneNumberKit/PhoneNumberKitCore (2.5.0)
+  - PhoneNumberKit/UIKit (2.5.0):
+    - PhoneNumberKit/PhoneNumberKitCore
   - SwiftGen (6.0.2)
 
 DEPENDENCIES:
+  - PhoneNumberKit (~> 2.1)
   - SwiftGen
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - PhoneNumberKit
     - SwiftGen
 
 SPEC CHECKSUMS:
+  PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   SwiftGen: e5b047067aa84082826a0c4f1c4c2ddc95bcf74c
 
-PODFILE CHECKSUM: 87565cff06f92a6c320d44d92556c9fd004c348a
+PODFILE CHECKSUM: d5aab3e498bf6b66acf9acbb499fcf304de50d12
 
 COCOAPODS: 1.5.3

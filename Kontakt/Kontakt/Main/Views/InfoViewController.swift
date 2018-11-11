@@ -28,6 +28,7 @@ class InfoViewController: UIViewController {
     @IBOutlet var qrCodeImage: UIImageView!
     
     @IBAction func homeButtonTapped(_ sender: UIButton) {
+        infoDelegate?.infoDidFinishSuccessfully(true)
     }
     
     @IBAction func generateButtonTapped(_ sender: Any) {
