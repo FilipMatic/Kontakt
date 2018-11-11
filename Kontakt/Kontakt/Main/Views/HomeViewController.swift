@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        qrCodeImage = UIImageView()
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.init(red: 188.0/255.0, green: 136.0/255.0, blue: 8.0/255.0, alpha: 1.0)
         qrCodeImage.image = UIImage(named: "youngBrandonIngram")

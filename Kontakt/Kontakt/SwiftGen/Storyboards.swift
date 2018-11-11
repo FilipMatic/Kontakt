@@ -15,9 +15,10 @@ internal enum StoryboardScene {
   internal enum Main: StoryboardType {
     internal static let storyboardName = "Main"
     
-    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Main.self)
+//    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Main.self)
 
     internal static let homeViewController = SceneType<Kontakt.HomeViewController>(storyboard: Main.self, identifier: "Home")
+//    internal static let homeViewController = InitialSceneType<Kontakt.HomeViewController>(storyboard: Main.self)
     
     internal static let infoViewController = SceneType<Kontakt.InfoViewController>(storyboard: Main.self, identifier: "Info")
     

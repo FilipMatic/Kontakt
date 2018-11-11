@@ -12,11 +12,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private let coordinator = KontaktCoordinator()
+    var coordinator: Coordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        coordinator.start()
+        
+        let nc = UINavigationController()
+        window?.rootViewController = nc
+        coordinator = KontaktCoordinator(navigationController: nc) //needs to be fixed
+        coordinator?.start()
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
