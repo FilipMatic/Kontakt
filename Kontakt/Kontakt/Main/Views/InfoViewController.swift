@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PhoneNumberKit
 
 protocol InfoCoordinationDelegate: AnyObject {
     func infoDidFinishSuccessfully(_ success: Bool)
@@ -16,12 +17,14 @@ class InfoViewController: UIViewController {
     
     weak var infoDelegate: InfoCoordinationDelegate?
     
+    let phoneNumberKit = PhoneNumberKit()
+    
     @IBOutlet var homeButton: UIButton!
     @IBOutlet var generateButton: UIButton!
     
     @IBOutlet var firstName: UITextField!
     @IBOutlet var lastName: UITextField!
-    @IBOutlet var phoneNumber: UITextField!
+    @IBOutlet var phoneNumber: PhoneNumberTextField!
     @IBOutlet var email: UITextField!
     @IBOutlet var address: UITextField!
     @IBOutlet var displayScreen: UITextView!
@@ -59,6 +62,7 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(red: 153.0/255.0, green: 204.0/255.0, blue: 240.0/255.0, alpha: 1.0)
+        
         firstName.delegate = self
         lastName.delegate = self
         phoneNumber.delegate = self
