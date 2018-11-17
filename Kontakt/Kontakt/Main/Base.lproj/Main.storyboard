@@ -33,15 +33,16 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQS-5v-45D">
                                 <rect key="frame" x="100" y="477" width="175" height="48"/>
+                                <color key="backgroundColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="My Kontakt">
-                                    <color key="titleColor" red="0.58039215686274515" green="0.792156862745098" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.88183812770000003" green="0.69849606379999996" blue="0.47022062609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="infoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CWR-KP-4RJ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youngBrandonIngram" translatesAutoresizingMaskIntoConstraints="NO" id="yEF-J6-QQz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="errorIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yEF-J6-QQz">
                                 <rect key="frame" x="62" y="127" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="ZuW-fc-MXP"/>
@@ -50,9 +51,10 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ub-kr-PPR">
                                 <rect key="frame" x="100" y="545" width="175" height="48"/>
+                                <color key="backgroundColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Scanner">
-                                    <color key="titleColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.88183812770000003" green="0.69849606379999996" blue="0.47022062609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="scannerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GEw-iO-2dP"/>
@@ -258,6 +260,6 @@
     </scenes>
     <resources>
         <image name="backLakersColours" width="48" height="48"/>
-        <image name="youngBrandonIngram" width="240" height="144"/>
+        <image name="errorIcon" width="512" height="512"/>
     </resources>
 </document>

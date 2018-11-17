@@ -111,9 +111,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         contact.givenName = firstName
         contact.familyName = lastName
-//        let phoneNumber = CNLabeledValue(label: CNLabelPhoneNumberMain, value: CNPhoneNumber(stringValue: phone))
-//        contact.phoneNumbers = [phoneNumber]
-////        let homeEmail = CNLabeledValue(label: CNLabelHome, value: email)
+        let phoneNumber = CNLabeledValue(label: CNLabelPhoneNumberMain, value: CNPhoneNumber(stringValue: phone))
+        contact.phoneNumbers = [phoneNumber]
+//        let homeEmail = CNLabeledValue(label: CNLabelHome, value: email)
 //        let homeAddress = CNMutablePostalAddress()
 //        homeAddress.street = address
         
@@ -177,6 +177,5 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 }
             }
         }
-//        dismiss(animated: true)
     }
 }

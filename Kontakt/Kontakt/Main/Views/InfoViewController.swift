@@ -34,7 +34,7 @@ class InfoViewController: UIViewController {
         infoDelegate?.infoDidFinishSuccessfully(true)
     }
     
-    @IBAction func generateButtonTapped(_ sender: Any) {
+    @IBAction func generateButtonTapped(_ sender: UIButton) {
         displayScreen.text = "\(firstName.text!),\(lastName.text!),\(phoneNumber.text!),\(email.text!),\(address.text!)"
         UserDefaults.standard.set(firstName.text, forKey: "firstName")
         firstName.text = ""
@@ -47,16 +47,11 @@ class InfoViewController: UIViewController {
         UserDefaults.standard.set(address.text, forKey: "address")
         address.text = ""
         
-        if let infoString = displayScreen.text {
-            let infoData = infoString.data(using: .ascii, allowLossyConversion: false)
-            let infoFilter = CIFilter(name: "CIQRCodeGenerator")
-            infoFilter?.setValue(infoData, forKey: "inputMessage")
-
-            let infoImage = UIImage(ciImage: (infoFilter?.outputImage)!)
-
-            qrCodeImage.image = infoImage
-        }
+        UserDefaults.standard.set(displayScreen.text, forKey: "contactInfo")
         
+        if let infoString = displayScreen.text {
+            qrCodeImage.image = generateQRCode(from: infoString)
+        }
     }
     
     override func viewDidLoad() {
@@ -68,52 +63,55 @@ class InfoViewController: UIViewController {
         phoneNumber.delegate = self
         email.delegate = self
         address.delegate = self
-//        qrCodeImage.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        var info = ""
-        var infoForCode: String!
-        infoForCode = ""
         
+        firstName.autocorrectionType = .no
+        firstName.autocapitalizationType = .words
+        
+        lastName.autocorrectionType = .no
+        lastName.autocapitalizationType = .words
+        
+        email.keyboardType = .emailAddress
+        email.autocorrectionType = .no
+        email.autocapitalizationType = .none
+        
+        address.autocorrectionType = .no
+        address.autocapitalizationType = .words
+        
+        qrCodeImage.image = UIImage(named: "errorIcon")
+        
+        var contactInfo = ""
+
         if let x = UserDefaults.standard.object(forKey: "firstName") as? String {
-            info += "\(x),"
-            infoForCode += "\(x),"
+            contactInfo += "\(x),"
         }
         if let y = UserDefaults.standard.object(forKey: "lastName") as? String {
-            info += "\(y),"
-            infoForCode += "\(y),"
+            contactInfo += "\(y),"
         }
         if let z = UserDefaults.standard.object(forKey: "phoneNumber") as? String {
-            info += "\(z),"
-            infoForCode += "\(z),"
+            contactInfo += "\(z),"
         }
         if let q = UserDefaults.standard.object(forKey: "email") as? String {
-            info += "\(q),"
-            infoForCode += "\(q),"
+            contactInfo += "\(q),"
         }
         if let w = UserDefaults.standard.object(forKey: "address") as? String {
-            info += "\(w)"
-            infoForCode += "\(w)"
+            contactInfo += "\(w)"
+            qrCodeImage.image = generateQRCode(from: contactInfo)
+        }
+        displayScreen.text = contactInfo
+    }
+    
+    private func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+        
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 3, y: 3)
             
-            //need to change this!!!!! THIS IS CHEATING
-            if let infoString = infoForCode {
-                let infoData = infoString.data(using: .ascii, allowLossyConversion: false)
-                let infoFilter = CIFilter(name: "CIQRCodeGenerator")
-                infoFilter?.setValue(infoData, forKey: "inputMessage")
-                
-                let infoImage = UIImage(ciImage: (infoFilter?.outputImage)!)
-                
-                qrCodeImage.image = infoImage
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
             }
         }
-        
-        displayScreen.text = info
+        return UIImage(named: "errorIcon")
     }
 }
 
