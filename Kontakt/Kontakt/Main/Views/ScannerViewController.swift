@@ -27,10 +27,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     @IBOutlet var cameraView: UIView!
     @IBOutlet var infoTextView: UILabel!
     
-    @IBAction func homeButtonTapped(_ sender: UIButton) {
-        scannerDelegate?.scannerDidFinishSuccessfully(true)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -53,7 +49,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         cameraView.backgroundColor = .black
         session = AVCaptureSession()
         let captureDevice = AVCaptureDevice.default(for: .video)
@@ -106,16 +101,22 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         session.startRunning()
     }
     
-    private func importContact(firstName: String, lastName: String, phone: String, email: String, address: String) {
+    @IBAction private func homeButtonTapped(_ sender: UIButton) {
+        scannerDelegate?.scannerDidFinishSuccessfully(true)
+    }
+    
+    private func importContact(firstName: String, lastName: String, phone: String, email: NSString, address: String) {
         let contact = CNMutableContact()
         
         contact.givenName = firstName
         contact.familyName = lastName
         let phoneNumber = CNLabeledValue(label: CNLabelPhoneNumberMain, value: CNPhoneNumber(stringValue: phone))
         contact.phoneNumbers = [phoneNumber]
-//        let homeEmail = CNLabeledValue(label: CNLabelHome, value: email)
-//        let homeAddress = CNMutablePostalAddress()
-//        homeAddress.street = address
+        let homeEmail = CNLabeledValue(label: CNLabelHome, value: email)
+        contact.emailAddresses = [homeEmail]
+        let homeAddress = CNMutablePostalAddress()
+        homeAddress.street = address
+        contact.postalAddresses = [CNLabeledValue(label: CNLabelHome, value: homeAddress)]
         
         store = CNContactStore()
         
@@ -134,9 +135,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         let saveRequest = CNSaveRequest()
         saveRequest.add(contact, toContainerWithIdentifier: nil)
-        print("hey")
         try! store.execute(saveRequest)
-        print("fuck yeah")
+        session.stopRunning()
+        scannerDelegate?.scannerDidFinishSuccessfully(true)
     }
     
     private func failed() {
@@ -151,7 +152,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-//        session.stopRunning()
         if let metadataObject = metadataObjects.first {
             if let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject {
                 if readableObject.type == AVMetadataObject.ObjectType.qr {
@@ -170,7 +170,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                         let emailSplit = String(contactInfoDataSplit[3])
                         let addressSplit = String(contactInfoDataSplit[4])
                         
-                        self.importContact(firstName: firstNameSplit, lastName: lastNameSplit, phone: phoneNumberSplit, email: emailSplit, address: addressSplit)
+                        self.importContact(firstName: firstNameSplit, lastName: lastNameSplit, phone: phoneNumberSplit, email: emailSplit as NSString, address: addressSplit)
                         
                     }))
                     present(alert, animated: true, completion: nil)
