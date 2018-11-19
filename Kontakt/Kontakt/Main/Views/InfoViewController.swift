@@ -30,33 +30,11 @@ class InfoViewController: UIViewController {
     @IBOutlet var displayScreen: UITextView!
     @IBOutlet var qrCodeImage: UIImageView!
     
-    @IBAction func homeButtonTapped(_ sender: UIButton) {
-        infoDelegate?.infoDidFinishSuccessfully(true)
-    }
-    
-    @IBAction func generateButtonTapped(_ sender: UIButton) {
-        displayScreen.text = "\(firstName.text!),\(lastName.text!),\(phoneNumber.text!),\(email.text!),\(address.text!)"
-        UserDefaults.standard.set(firstName.text, forKey: "firstName")
-        firstName.text = ""
-        UserDefaults.standard.set(lastName.text, forKey: "lastName")
-        lastName.text = ""
-        UserDefaults.standard.set(phoneNumber.text, forKey: "phoneNumber")
-        phoneNumber.text = ""
-        UserDefaults.standard.set(email.text, forKey: "email")
-        email.text = ""
-        UserDefaults.standard.set(address.text, forKey: "address")
-        address.text = ""
-        
-        UserDefaults.standard.set(displayScreen.text, forKey: "contactInfo")
-        
-        if let infoString = displayScreen.text {
-            qrCodeImage.image = generateQRCode(from: infoString)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.init(red: 153.0/255.0, green: 204.0/255.0, blue: 240.0/255.0, alpha: 1.0)
+//        self.view.backgroundColor = UIColor.init(red: 153.0/255.0, green: 204.0/255.0, blue: 240.0/255.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor.init(red: 153.0/255.0, green: 101.0/255.0, blue: 21.0/255.0, alpha: 1.0)
+        generateButton.setupButtonAppearance()
         
         firstName.delegate = self
         lastName.delegate = self
@@ -66,21 +44,27 @@ class InfoViewController: UIViewController {
         
         firstName.autocorrectionType = .no
         firstName.autocapitalizationType = .words
+        firstName.setupTextFieldAppearance()
         
         lastName.autocorrectionType = .no
         lastName.autocapitalizationType = .words
+        lastName.setupTextFieldAppearance()
+    
+        phoneNumber.setupTextFieldAppearance()
         
         email.keyboardType = .emailAddress
         email.autocorrectionType = .no
         email.autocapitalizationType = .none
+        email.setupTextFieldAppearance()
         
         address.autocorrectionType = .no
         address.autocapitalizationType = .words
+        address.setupTextFieldAppearance()
         
         qrCodeImage.image = UIImage(named: "errorIcon")
         
         var contactInfo = ""
-
+        
         if let x = UserDefaults.standard.object(forKey: "firstName") as? String {
             contactInfo += "\(x),"
         }
@@ -100,6 +84,44 @@ class InfoViewController: UIViewController {
         displayScreen.text = contactInfo
     }
     
+    @IBAction private func homeButtonTapped(_ sender: UIButton) {
+        infoDelegate?.infoDidFinishSuccessfully(true)
+    }
+    
+    @IBAction private func generateButtonTapped(_ sender: UIButton) {
+        displayScreen.text = "\(firstName.text!),\(lastName.text!),\(phoneNumber.text!),\(email.text!),\(address.text!)"
+        UserDefaults.standard.set(firstName.text, forKey: "firstName")
+        firstName.text = ""
+        UserDefaults.standard.set(lastName.text, forKey: "lastName")
+        lastName.text = ""
+        UserDefaults.standard.set(phoneNumber.text, forKey: "phoneNumber")
+        phoneNumber.text = ""
+        
+        UserDefaults.standard.set(address.text, forKey: "address")
+        address.text = ""
+        
+        UserDefaults.standard.set(displayScreen.text, forKey: "contactInfo")
+
+        if isValidEmail(emailStr: email.text!) {
+            if email.checkIfErrorColor() {
+                email.setValidBorderColor()
+                email.layoutIfNeeded()
+            }
+            UserDefaults.standard.set(email.text, forKey: "email")
+            email.text = ""
+            if let infoString = displayScreen.text {
+                qrCodeImage.image = generateQRCode(from: infoString)
+            }
+        } else {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.email.setErrorBorderColor()
+            }) { _ in
+                self.email.shake(horizontally: 4.0, vertically: 0.0)
+            }
+        }
+        
+    }
+    
     private func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
         
@@ -112,6 +134,27 @@ class InfoViewController: UIViewController {
             }
         }
         return UIImage(named: "errorIcon")
+    }
+    
+    private func isNameValid(nameStr: String) -> Bool {
+        let nameRegEx = "/^[a-z ,.'-]+$/i"
+        
+        let nameTest = NSPredicate(format: "SELF MATCHES %@", nameRegEx)
+        return nameTest.evaluate(with: nameStr)
+    }
+    
+//    private func isPhoneNumberValid(phoneStr: String) -> Bool {
+//        let phoneRegEx = "^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
+//
+//        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegEx)
+//        return phoneTest.ev
+//    }
+    
+    private func isValidEmail(emailStr: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: emailStr)
     }
 }
 

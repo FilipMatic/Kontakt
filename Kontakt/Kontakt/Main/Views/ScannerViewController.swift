@@ -49,22 +49,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        cameraView.backgroundColor = .black
         session = AVCaptureSession()
         let captureDevice = AVCaptureDevice.default(for: .video)
-        
-        if UserDefaults.standard.bool(forKey: "cameraPermission") {
-            print("already asked")
-        } else {
-            AVCaptureDevice.requestAccess(for: .video) { (response) in
-                UserDefaults.standard.set(true, forKey: "cameraPermission")
-                if response {
-                    print("access granted")
-                } else {
-                    print("access denied")
-                }
-            }
-        }
         
         var videoInput: AVCaptureDeviceInput
         
@@ -119,19 +105,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         contact.postalAddresses = [CNLabeledValue(label: CNLabelHome, value: homeAddress)]
         
         store = CNContactStore()
-        
-        if UserDefaults.standard.bool(forKey: "contactPermission") {
-            print("already asked camera")
-        } else {
-            store.requestAccess(for: .contacts) { (granted, error) in
-                UserDefaults.standard.set(true, forKey: "contactPermission")
-                if granted {
-                    print("granted")
-                } else {
-                    print("not granted")
-                }
-            }
-        }
         
         let saveRequest = CNSaveRequest()
         saveRequest.add(contact, toContainerWithIdentifier: nil)

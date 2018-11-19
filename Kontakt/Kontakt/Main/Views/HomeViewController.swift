@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import Contacts
 
 protocol HomeCoordinationDelegate: AnyObject {
     func homeDidFinishSuccessfully(_ success: Bool)
@@ -19,17 +21,10 @@ class HomeViewController: UIViewController {
     @IBOutlet var infoButton: UIButton!
     @IBOutlet var scannerButton: UIButton!
     
-    @IBAction func infoButtonTapped(_ sender: UIButton) {
-        homeDelegate?.homeDidFinishSuccessfully(true)
-    }
-    
-    @IBAction func scannerButtonTapped(_ sender: UIButton) {
-        homeDelegate?.homeDidFinishSuccessfully(false)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.init(red: 188.0/255.0, green: 136.0/255.0, blue: 8.0/255.0, alpha: 1.0)
+        //        self.view.backgroundColor = UIColor.init(red: 188.0/255.0, green: 136.0/255.0, blue: 8.0/255.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor.init(red: 153.0/255.0, green: 101.0/255.0, blue: 21.0/255.0, alpha: 1.0)
         
         infoButton.setupButtonAppearance()
         scannerButton.setupButtonAppearance()
@@ -37,7 +32,28 @@ class HomeViewController: UIViewController {
         qrCodeImage.image = UIImage(named: "errorIcon")
         
         var contactInfo = ""
-
+        
+        if let x = UserDefaults.standard.object(forKey: "firstName") as? String {
+            contactInfo += "\(x),"
+        }
+        if let y = UserDefaults.standard.object(forKey: "lastName") as? String {
+            contactInfo += "\(y),"
+        }
+        if let z = UserDefaults.standard.object(forKey: "phoneNumber") as? String {
+            contactInfo += "\(z),"
+        }
+        if let q = UserDefaults.standard.object(forKey: "email") as? String {
+            contactInfo += "\(q),"
+        }
+        if let w = UserDefaults.standard.object(forKey: "address") as? String {
+            contactInfo += "\(w)"
+            qrCodeImage.image = generateQRCode(from: contactInfo)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        var contactInfo = ""
+        
         if let x = UserDefaults.standard.object(forKey: "firstName") as? String {
             contactInfo += "\(x),"
         }
@@ -57,25 +73,43 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        var contactInfo = ""
-
-        if let x = UserDefaults.standard.object(forKey: "firstName") as? String {
-            contactInfo += "\(x),"
+        if UserDefaults.standard.bool(forKey: "cameraPermission") {
+            print("already asked")
+        } else {
+            AVCaptureDevice.requestAccess(for: .video) { (response) in
+                UserDefaults.standard.set(true, forKey: "cameraPermission")
+                if response {
+                    print("access granted")
+                } else {
+                    print("access denied")
+                }
+            }
         }
-        if let y = UserDefaults.standard.object(forKey: "lastName") as? String {
-            contactInfo += "\(y),"
-        }
-        if let z = UserDefaults.standard.object(forKey: "phoneNumber") as? String {
-            contactInfo += "\(z),"
-        }
-        if let q = UserDefaults.standard.object(forKey: "email") as? String {
-            contactInfo += "\(q),"
-        }
-        if let w = UserDefaults.standard.object(forKey: "address") as? String {
-            contactInfo += "\(w)"
-            qrCodeImage.image = generateQRCode(from: contactInfo)
+        
+        let store = CNContactStore()
+        
+        if UserDefaults.standard.bool(forKey: "contactPermission") {
+            print("already asked for contact")
+        } else {
+            store.requestAccess(for: .contacts) { (granted, error) in
+                UserDefaults.standard.set(true, forKey: "contactPermission")
+                if granted {
+                    print("contact granted")
+                } else {
+                    print("contact not granted")
+                }
+            }
         }
     }
+    
+    @IBAction private func infoButtonTapped(_ sender: UIButton) {
+        homeDelegate?.homeDidFinishSuccessfully(true)
+    }
+    
+    @IBAction private func scannerButtonTapped(_ sender: UIButton) {
+        homeDelegate?.homeDidFinishSuccessfully(false)
+    }
+    
     
     private func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)

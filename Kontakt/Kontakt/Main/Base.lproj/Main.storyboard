@@ -33,10 +33,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQS-5v-45D">
                                 <rect key="frame" x="100" y="477" width="175" height="48"/>
-                                <color key="backgroundColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="My Kontakt">
-                                    <color key="titleColor" red="0.88183812770000003" green="0.69849606379999996" blue="0.47022062609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.58039215686274503" green="0.792156862745098" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="infoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CWR-KP-4RJ"/>
@@ -51,10 +50,9 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ub-kr-PPR">
                                 <rect key="frame" x="100" y="545" width="175" height="48"/>
-                                <color key="backgroundColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Scanner">
-                                    <color key="titleColor" red="0.88183812770000003" green="0.69849606379999996" blue="0.47022062609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.58039215686274503" green="0.792156862745098" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="scannerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GEw-iO-2dP"/>
@@ -152,36 +150,36 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jv5-5J-wQ1" userLabel="First Name Text Field">
                                         <rect key="frame" x="0.0" y="0.0" width="265" height="30"/>
-                                        <color key="backgroundColor" red="0.58039215686274515" green="0.792156862745098" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
+                                        <color key="backgroundColor" red="0.73725490196078436" green="0.53333333333333333" blue="0.031372549019607843" alpha="0.79880061619718312" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2Y-yK-Yn1" userLabel="Last Name Text Field">
                                         <rect key="frame" x="0.0" y="38" width="265" height="30"/>
-                                        <color key="backgroundColor" red="0.58039215686274515" green="0.792156862745098" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
+                                        <color key="backgroundColor" red="0.73725490196078436" green="0.53333333333333333" blue="0.031372549019607843" alpha="0.79880061619718312" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3WT-GN-Ie2" userLabel="Phone Number Text Field" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
                                         <rect key="frame" x="0.0" y="76" width="265" height="30"/>
-                                        <color key="backgroundColor" red="0.58039215686274515" green="0.792156862745098" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
+                                        <color key="backgroundColor" red="0.73725490196078436" green="0.53333333333333333" blue="0.031372549019607843" alpha="0.79880061619718312" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6hf-kc-ptT" userLabel="Email Text Field">
                                         <rect key="frame" x="0.0" y="114" width="265" height="30"/>
-                                        <color key="backgroundColor" red="0.58039215686274515" green="0.792156862745098" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
+                                        <color key="backgroundColor" red="0.73725490196078436" green="0.53333333333333333" blue="0.031372549019607843" alpha="0.79880061619718312" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E7t-kY-FSE" userLabel="Address Text Field">
                                         <rect key="frame" x="0.0" y="152" width="265" height="30"/>
-                                        <color key="backgroundColor" red="0.58039215686274515" green="0.792156862745098" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
+                                        <color key="backgroundColor" red="0.73725490196078436" green="0.53333333333333333" blue="0.031372549019607843" alpha="0.79880061619718312" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -192,7 +190,7 @@
                                 <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
                                 <color key="tintColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Generate">
-                                    <color key="titleColor" red="0.88183812773907122" green="0.69849606377176243" blue="0.47022062612499699" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.58039215690000001" green="0.79215686269999996" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="generateButtonTapped:" destination="PUs-ov-iKY" eventType="touchUpInside" id="sMg-jR-FpC"/>

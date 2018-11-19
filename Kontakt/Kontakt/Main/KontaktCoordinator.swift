@@ -37,9 +37,12 @@ extension KontaktCoordinator: HomeCoordinationDelegate {
             self.navigationController?.pushViewController(infoViewController, animated: true)
         } else {
             scannerViewController.scannerDelegate = self
-            self.navigationController?.pushViewController(scannerViewController, animated: true)
+            if (self.navigationController?.viewControllers.count)! > 1 {
+                self.navigationController?.pushViewController(scannerViewController, animated: true)
+            } else {
+                self.navigationController?.pushViewController(scannerViewController, animated: true)
+            }
         }
-        
     }
 }
 
