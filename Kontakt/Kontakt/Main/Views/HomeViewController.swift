@@ -23,7 +23,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        self.view.backgroundColor = UIColor.init(red: 188.0/255.0, green: 136.0/255.0, blue: 8.0/255.0, alpha: 1.0)
         self.view.backgroundColor = UIColor.init(red: 153.0/255.0, green: 101.0/255.0, blue: 21.0/255.0, alpha: 1.0)
         
         infoButton.setupButtonAppearance()

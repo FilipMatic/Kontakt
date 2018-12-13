@@ -17,12 +17,14 @@ extension UITextField {
     }
     
     func shake(horizontally: CGFloat = 0, vertically: CGFloat = 0) {
-        let animation = CABasicAnimation(keyPath: "position")
+        let animation = CABasicAnimation(keyPath: "shake")
         animation.duration = 0.05
         animation.repeatCount = 5.0
         animation.autoreverses = true
         animation.fromValue = NSValue(cgPoint: CGPoint(x: center.x - horizontally, y: center.y - horizontally))
         animation.toValue = NSValue(cgPoint: CGPoint(x: center.x + horizontally, y: center.y + horizontally))
+        
+        self.layer.add(animation, forKey: "shake")
     }
     
     func showTextfieldError(borderColor: CGColor? = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)) {
