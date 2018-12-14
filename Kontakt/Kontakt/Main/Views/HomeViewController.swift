@@ -20,34 +20,36 @@ class HomeViewController: UIViewController {
     @IBOutlet var qrCodeImage: UIImageView!
     @IBOutlet var infoButton: UIButton!
     @IBOutlet var scannerButton: UIButton!
+    @IBOutlet var imageView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.init(red: 153.0/255.0, green: 101.0/255.0, blue: 21.0/255.0, alpha: 1.0)
-        
-        infoButton.setupButtonAppearance()
         scannerButton.setupButtonAppearance()
+        imageView.layer.cornerRadius = 12.0
         
-        qrCodeImage.image = UIImage(named: "errorIcon")
+        let gradient = CAGradientLayer()
+        gradient.frame = self.view.bounds
+        gradient.colors = [#colorLiteral(red: 0, green: 0.8862745098, blue: 0.8196078431, alpha: 1), #colorLiteral(red: 0.2235294118, green: 0, blue: 0.5098039216, alpha: 1)]
         
-        var contactInfo = ""
+        self.view.layer.addSublayer(gradient)
         
-        if let x = UserDefaults.standard.object(forKey: "firstName") as? String {
-            contactInfo += "\(x),"
-        }
-        if let y = UserDefaults.standard.object(forKey: "lastName") as? String {
-            contactInfo += "\(y),"
-        }
-        if let z = UserDefaults.standard.object(forKey: "phoneNumber") as? String {
-            contactInfo += "\(z),"
-        }
-        if let q = UserDefaults.standard.object(forKey: "email") as? String {
-            contactInfo += "\(q),"
-        }
-        if let w = UserDefaults.standard.object(forKey: "address") as? String {
-            contactInfo += "\(w)"
-            qrCodeImage.image = generateQRCode(from: contactInfo)
-        }
+//        qrCodeImage.image = UIImage(named: "errorIcon")
+        
+//        var contactInfo = ""
+//
+//        if let x = UserDefaults.standard.object(forKey: "firstName") as? String {
+//            contactInfo += "\(x),"
+//        }
+//        if let y = UserDefaults.standard.object(forKey: "lastName") as? String {
+//            contactInfo += "\(y),"
+//        }
+//        if let z = UserDefaults.standard.object(forKey: "phoneNumber") as? String {
+//            contactInfo += "\(z),"
+//        }
+//        if let q = UserDefaults.standard.object(forKey: "email") as? String {
+//            contactInfo += "\(q),"
+//        }
+//        qrCodeImage.image = generateQRCode(from: contactInfo)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,10 +67,7 @@ class HomeViewController: UIViewController {
         if let q = UserDefaults.standard.object(forKey: "email") as? String {
             contactInfo += "\(q),"
         }
-        if let w = UserDefaults.standard.object(forKey: "address") as? String {
-            contactInfo += "\(w)"
-            qrCodeImage.image = generateQRCode(from: contactInfo)
-        }
+        qrCodeImage.image = generateQRCode(from: contactInfo)
     }
     
     override func viewDidAppear(_ animated: Bool) {

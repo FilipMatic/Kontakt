@@ -9,7 +9,7 @@
 import UIKit
 
 extension UITextField {
-    func setupTextFieldAppearance(masksToBounds: Bool = false, cornerRadius: CGFloat = 5.0, borderWidth: CGFloat = 2.0, borderColor: CGColor? = #colorLiteral(red: 0.5803921569, green: 0.7921568627, blue: 0.9568627451, alpha: 1)) {
+    func setupTextFieldAppearance(masksToBounds: Bool = false, cornerRadius: CGFloat = 4.0, borderWidth: CGFloat = 1.0, borderColor: CGColor? = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) {
         layer.masksToBounds = masksToBounds
         layer.cornerRadius = cornerRadius
         layer.borderWidth = borderWidth
@@ -40,7 +40,7 @@ extension UITextField {
         }
     }
     
-    func setValidBorderColor(borderColor: CGColor? = #colorLiteral(red: 0.5803921569, green: 0.7921568627, blue: 0.9568627451, alpha: 1)) {
+    func setValidBorderColor(borderColor: CGColor? = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) {
         layer.borderColor = borderColor
         layoutIfNeeded()
     }

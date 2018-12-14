@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -80,17 +80,17 @@
 		6C566D861DBD4491D76BF66CE53D036B /* Pods-Kontakt-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Kontakt-resources.sh"; sourceTree = "<group>"; };
 		6F40AD32109D5B8B8FE3B9C10CBF260A /* PartialFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PartialFormatter.swift; path = PhoneNumberKit/PartialFormatter.swift; sourceTree = "<group>"; };
 		77A872169D36E21959CF85BFA52BA0E2 /* TextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = PhoneNumberKit/UI/TextField.swift; sourceTree = "<group>"; };
-		7814A9DD81F036E9A6C9EADBF9AA06D7 /* Pods_Kontakt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Kontakt.framework; path = "Pods-Kontakt.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7814A9DD81F036E9A6C9EADBF9AA06D7 /* Pods_Kontakt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kontakt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		851856EEF55C6EA9858C5FA8D0E6CFA7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89609EA77A28172E0EF56CB022DD55AC /* Pods-Kontakt-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Kontakt-frameworks.sh"; sourceTree = "<group>"; };
 		8B9516B1A127827629412A4B413608E2 /* Pods-KontaktUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KontaktUITests-dummy.m"; sourceTree = "<group>"; };
 		904984EE236699707C30A644F6C1AA8E /* Pods-KontaktTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KontaktTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		989E861ED49906F5782D0CB7A495EE39 /* Pods-KontaktTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KontaktTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C9EE88BF9ADC5E0AD8353844C20A2C8 /* PhoneNumberKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-umbrella.h"; sourceTree = "<group>"; };
 		9FFF91267F9384A7890E619706E5D780 /* RegexManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegexManager.swift; path = PhoneNumberKit/RegexManager.swift; sourceTree = "<group>"; };
 		A07AAD8BA250836DEFEAEB201FB0B4C5 /* Pods-KontaktUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KontaktUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		A4364134DE494646E0BDD21CC452F20E /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PhoneNumberKit.framework; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4364134DE494646E0BDD21CC452F20E /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDBE3275FFF7EE311E2319A75FDAAF2 /* Pods-KontaktUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KontaktUITests-frameworks.sh"; sourceTree = "<group>"; };
 		B0768780F6B1F569C6E0B0D2E33E460E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4F3595DD11747029E5A2C193694FEF3 /* Pods-KontaktUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KontaktUITests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -107,15 +107,15 @@
 		DDD8918EAC348545D96FAC6B2080AF31 /* Pods-Kontakt-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Kontakt-dummy.m"; sourceTree = "<group>"; };
 		E2C22B3EF6671928535275FF8157BEC9 /* Pods-KontaktUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KontaktUITests-umbrella.h"; sourceTree = "<group>"; };
 		E9A91C80F8E76C3F06EB8819E405EDE4 /* Pods-Kontakt-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Kontakt-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F29FC4CC0EA31B0EBCE7D40C6BC2FF74 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
+		F29FC4CC0EA31B0EBCE7D40C6BC2FF74 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
 		F5653D582F8B775CE262B3390F32EA8E /* MetadataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataTypes.swift; path = PhoneNumberKit/MetadataTypes.swift; sourceTree = "<group>"; };
 		F816C099E293E92A37BBC267073734A0 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = PhoneNumberKit/Constants.swift; sourceTree = "<group>"; };
 		F9EFF361291A7FCE475DD163A54EBE4F /* PhoneNumberKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberKit.swift; path = PhoneNumberKit/PhoneNumberKit.swift; sourceTree = "<group>"; };
-		FB5F1E70A58871F763ADD580447769BD /* Pods_KontaktTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KontaktTests.framework; path = "Pods-KontaktTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB5F1E70A58871F763ADD580447769BD /* Pods_KontaktTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KontaktTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7EAFCD2F16278BD132E95793E062B8 /* Pods-KontaktTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KontaktTests.modulemap"; sourceTree = "<group>"; };
 		FD0F731E36F7EA4957D621FDC6864AF2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD1BEE89387E70119D9CABFD1E6829B1 /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
-		FF6F0FD00E951B5772E1D9CC89DE55D7 /* Pods_KontaktUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KontaktUITests.framework; path = "Pods-KontaktUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF6F0FD00E951B5772E1D9CC89DE55D7 /* Pods_KontaktUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KontaktUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +187,6 @@
 				5A2E9754E09DC1F22E8F8B0BE8846E02 /* Support Files */,
 				F48F43182AB115C4EB13F6FD9C01F4A3 /* UIKit */,
 			);
-			name = PhoneNumberKit;
 			path = PhoneNumberKit;
 			sourceTree = "<group>";
 		};
@@ -313,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = SwiftGen;
 			path = SwiftGen;
 			sourceTree = "<group>";
 		};
@@ -452,7 +450,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1010;
+				TargetAttributes = {
+					8C5BD10883BD185426DD737247F56DEC = {
+						LastSwiftMigration = 1010;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -571,11 +574,7 @@
 				INFOPLIST_FILE = "Target Support Files/PhoneNumberKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/PhoneNumberKit/PhoneNumberKit.modulemap";
 				PRODUCT_MODULE_NAME = PhoneNumberKit;
 				PRODUCT_NAME = PhoneNumberKit;
@@ -583,7 +582,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -608,11 +607,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-KontaktTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-KontaktTests/Pods-KontaktTests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -708,11 +703,7 @@
 				INFOPLIST_FILE = "Target Support Files/PhoneNumberKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/PhoneNumberKit/PhoneNumberKit.modulemap";
 				PRODUCT_MODULE_NAME = PhoneNumberKit;
 				PRODUCT_NAME = PhoneNumberKit;
@@ -720,7 +711,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -746,11 +737,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-KontaktUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-KontaktUITests/Pods-KontaktUITests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -785,11 +772,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-KontaktUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-KontaktUITests/Pods-KontaktUITests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -823,11 +806,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-KontaktTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-KontaktTests/Pods-KontaktTests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -898,6 +877,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
@@ -920,11 +900,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Kontakt/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Kontakt/Pods-Kontakt.modulemap";
 				OTHER_LDFLAGS = "";
@@ -960,11 +936,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Kontakt/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Kontakt/Pods-Kontakt.modulemap";
 				OTHER_LDFLAGS = "";

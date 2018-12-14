@@ -13,19 +13,13 @@ extension UIButton {
     ///
     /// - Parameters:
     ///   - masksToBounds: Default is false
-    ///   - cornerRadius: Default is 10
-    ///   - shadowColor: Default is black
-    ///   - shadowOpacity: Default is 0.21
-    ///   - shadowRadius: Default is 2
-    ///   - shadowOffset: Default is width:2, height:2
+    ///   - cornerRadius: Default is 29.0
     ///   - image: Default is nil
-    func setupButtonAppearance(masksToBounds: Bool = false, cornerRadius: CGFloat = 10, shadowColor: UIColor = .black, shadowOpacity: Float = 0.21, shadowRadius: CGFloat = 2.0, shadowOffset: CGSize = CGSize(width: 2, height: 2), image: UIImage? = nil, borderWidth: CGFloat = 5.0, borderColor: CGColor? = #colorLiteral(red: 0.5803921569, green: 0.7921568627, blue: 0.9568627451, alpha: 1)) {
+    ///   - borderWidth: Default is 1.0
+    ///   - borderColor: Defauly is white
+    func setupButtonAppearance(masksToBounds: Bool = false, cornerRadius: CGFloat = 29.0, image: UIImage? = nil, borderWidth: CGFloat = 1.0, borderColor: CGColor? = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) {
         layer.masksToBounds = masksToBounds
         layer.cornerRadius = cornerRadius
-        layer.shadowColor = shadowColor.cgColor
-        layer.shadowOpacity = shadowOpacity
-        layer.shadowRadius = shadowRadius
-        layer.shadowOffset = shadowOffset
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor
         if let buttonImage = image {
