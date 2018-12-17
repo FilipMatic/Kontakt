@@ -50,6 +50,8 @@
 		1460F05F21C362CA00F91A88 /* SF-Pro-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1460F04121C362CA00F91A88 /* SF-Pro-Display-Thin.otf */; };
 		1460F06021C362CA00F91A88 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1460F04221C362CA00F91A88 /* SF-Pro-Display-Light.otf */; };
 		1460F06121C362CA00F91A88 /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1460F04321C362CA00F91A88 /* SF-Pro-Display-Black.otf */; };
+		1482C9B121C3807B00949EE8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1482C9B021C3807B00949EE8 /* UIViewExtensions.swift */; };
+		149C725821C4668A000163C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1438B99F214B55C4007FE21A /* Info.plist */; };
 		149CD1FE214D894C0064A99F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149CD1FD214D894C0064A99F /* InfoViewController.swift */; };
 		14DF7CE8219E689D00972B87 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF7CE7219E689D00972B87 /* UserDefaultsExtensions.swift */; };
 		14F5178B21586EA3007983E8 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F5178A21586EA3007983E8 /* ScannerViewController.swift */; };
@@ -125,6 +127,7 @@
 		1460F04121C362CA00F91A88 /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
 		1460F04221C362CA00F91A88 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		1460F04321C362CA00F91A88 /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
+		1482C9B021C3807B00949EE8 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		149CD1FD214D894C0064A99F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		14DF7CE7219E689D00972B87 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		14F5178A21586EA3007983E8 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +269,7 @@
 				14DF7CE7219E689D00972B87 /* UserDefaultsExtensions.swift */,
 				144E425B21A0C149001C73C7 /* UIButtonExtensions.swift */,
 				144E425D21A2715D001C73C7 /* UITextFieldExtensions.swift */,
+				1482C9B021C3807B00949EE8 /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -449,6 +453,7 @@
 				1460F05321C362CA00F91A88 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				1460F05421C362CA00F91A88 /* SF-Pro-Display-HeavyItalic.otf in Resources */,
 				1460F05621C362CA00F91A88 /* SF-Pro-Text-Light.otf in Resources */,
+				149C725821C4668A000163C2 /* Info.plist in Resources */,
 				1460F04821C362CA00F91A88 /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				1460F04921C362CA00F91A88 /* SF-Pro-Display-Heavy.otf in Resources */,
 				1460F05721C362CA00F91A88 /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
@@ -575,6 +580,7 @@
 				145E5FD3219541FA001B76E2 /* UIViewControllerExtensions.swift in Sources */,
 				1438B996214B55C1007FE21A /* HomeViewController.swift in Sources */,
 				14DF7CE8219E689D00972B87 /* UserDefaultsExtensions.swift in Sources */,
+				1482C9B121C3807B00949EE8 /* UIViewExtensions.swift in Sources */,
 				144E425E21A2715D001C73C7 /* UITextFieldExtensions.swift in Sources */,
 				149CD1FE214D894C0064A99F /* InfoViewController.swift in Sources */,
 				144A4BFF2191435500F8D0B2 /* Coordinator.swift in Sources */,

@@ -27,11 +27,13 @@ class HomeViewController: UIViewController {
         scannerButton.setupButtonAppearance()
         imageView.layer.cornerRadius = 12.0
         
-        let gradient = CAGradientLayer()
-        gradient.frame = self.view.bounds
-        gradient.colors = [#colorLiteral(red: 0, green: 0.8862745098, blue: 0.8196078431, alpha: 1), #colorLiteral(red: 0.2235294118, green: 0, blue: 0.5098039216, alpha: 1)]
+//        let gradient = CAGradientLayer()
+//        gradient.frame = self.view.bounds
+//        gradient.colors = [#colorLiteral(red: 0, green: 0.8862745098, blue: 0.8196078431, alpha: 1), #colorLiteral(red: 0.2235294118, green: 0, blue: 0.5098039216, alpha: 1)]
+//
+//        self.view.layer.addSublayer(gradient)
         
-        self.view.layer.addSublayer(gradient)
+        view.setGradientBackground(colorOne: #colorLiteral(red: 0, green: 0.8862745098, blue: 0.8196078431, alpha: 1), colorTwo: #colorLiteral(red: 0.2235294118, green: 0, blue: 0.5098039216, alpha: 1))
         
 //        qrCodeImage.image = UIImage(named: "errorIcon")
         
