@@ -8,25 +8,23 @@
 
 import UIKit
 
+protocol OnboardingCoordinationDelegate: AnyObject {
+    func onboardingDidFinish()
+}
+
 class OnboardingViewController: UIViewController {
 
+    weak var onboardingDelegate: OnboardingCoordinationDelegate?
+    @IBOutlet private var getStartedButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.setGradientBackground(colorOne: #colorLiteral(red: 0, green: 0.8862745098, blue: 0.8196078431, alpha: 1), colorTwo: #colorLiteral(red: 0.2235294118, green: 0, blue: 0.5098039216, alpha: 1))
-
-        // Do any additional setup after loading the view.
+        getStartedButton.setupButtonAppearance()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func getStartedButtonTapped(_ sender: UIButton) {
+        onboardingDelegate?.onboardingDidFinish()
     }
-    */
-
 }

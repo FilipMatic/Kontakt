@@ -34,6 +34,13 @@ class InfoViewController: UIViewController {
         view.setGradientBackground(colorOne: #colorLiteral(red: 0, green: 0.8862745098, blue: 0.8196078431, alpha: 1), colorTwo: #colorLiteral(red: 0.2235294118, green: 0, blue: 0.5098039216, alpha: 1))
         generateButton.setupButtonAppearance()
         
+        let homeArrowImage = UIImage(named: "HomeArrow")
+        let tintedImage = homeArrowImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        homeButton.setBackgroundImage(tintedImage, for: .normal)
+        homeButton.tintColor = UIColor.white
+        
+//        homeButton.isHidden = !UserDefaults.standard.bool(forKey: "onboardingCompleted")
+        
         firstName.delegate = self
         firstName.tag = 100
         
@@ -62,6 +69,12 @@ class InfoViewController: UIViewController {
         email.setupTextFieldAppearance()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        homeButton.isHidden = !UserDefaults.standard.bool(forKey: "onboardingCompleted")
+    }
+    
     @IBAction private func homeButtonTapped(_ sender: UIButton) {
         infoDelegate?.infoDidFinishSuccessfully(true)
     }
@@ -72,6 +85,12 @@ class InfoViewController: UIViewController {
         UserDefaults.standard.set(lastName.text, forKey: "lastName")
         UserDefaults.standard.set(email.text, forKey: "email")
         UserDefaults.standard.set(phoneNumber.text, forKey: "phoneNumber")
+        
+        if !UserDefaults.standard.bool(forKey: "onboardingCompleted") {
+            infoDelegate?.infoDidFinishSuccessfully(false)
+        }
+        
+        UserDefaults.standard.set(true, forKey: "onboardingCompleted")
 
 //        if isValidEmail(emailStr: email.text!) {
 //            if email.checkIfErrorColor() {
@@ -135,50 +154,83 @@ class InfoViewController: UIViewController {
     private func setupScreen() {
         
     }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+//        keyboardConstraint.constant = 0
+//        nextButtonTopConstraint.constant = 71.5
+//        view.layoutIfNeeded()
+    }
+    
+    
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+//        let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
+//
+//        if keyboardConstraint.constant == keyboardSize.height {
+//            return
+//        }
+//
+//        nextButtonTopConstraint.constant = 15
+//        keyboardConstraint.constant = -220
+//        view.layoutIfNeeded()
+    }
 }
 
 extension InfoViewController : UITextFieldDelegate {
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if textField === firstName {
+            lastName.becomeFirstResponder()
+        } else if textField == lastName {
+            phoneNumber.becomeFirstResponder()
+        } else if textField == phoneNumber {
+            email.resignFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        
         return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        switch textField.tag {
-        case 100, 200:
-            if isValidName(nameStr: firstName.text!) {
-                if firstName.checkIfErrorColor() {
-                    UIView.animate(withDuration: 0.3, animations: {
-                        self.firstName.setValidBorderColor()
-                    }) { _ in
-                        self.firstName.layoutIfNeeded()
-                    }
-                }
-            } else {
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.firstName.setErrorBorderColor()
-                }) { _ in
-                    self.firstName.layoutIfNeeded()
-                }
-            }
-        case 400:
-            if isValidEmail(emailStr: email.text!) {
-                if email.checkIfErrorColor() {
-                    UIView.animate(withDuration: 0.3, animations: {
-                        self.email.setValidBorderColor()
-                    }) { _ in
-                        self.email.layoutIfNeeded()
-                    }
-                }
-            } else {
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.email.setErrorBorderColor()
-                }) { _ in
-                    self.email.layoutIfNeeded()
-                }
-            }
-        default:
-            break
-        }
-    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        switch textField.tag {
+//        case 100, 200:
+//            if isValidName(nameStr: firstName.text!) {
+//                if firstName.checkIfErrorColor() {
+//                    UIView.animate(withDuration: 0.3, animations: {
+//                        self.firstName.setValidBorderColor()
+//                    }) { _ in
+//                        self.firstName.layoutIfNeeded()
+//                    }
+//                }
+//            } else {
+//                UIView.animate(withDuration: 0.3, animations: {
+//                    self.firstName.setErrorBorderColor()
+//                }) { _ in
+//                    self.firstName.layoutIfNeeded()
+//                }
+//            }
+//        case 400:
+//            if isValidEmail(emailStr: email.text!) {
+//                if email.checkIfErrorColor() {
+//                    UIView.animate(withDuration: 0.3, animations: {
+//                        self.email.setValidBorderColor()
+//                    }) { _ in
+//                        self.email.layoutIfNeeded()
+//                    }
+//                }
+//            } else {
+//                UIView.animate(withDuration: 0.3, animations: {
+//                    self.email.setErrorBorderColor()
+//                }) { _ in
+//                    self.email.layoutIfNeeded()
+//                }
+//            }
+//        default:
+//            break
+//        }
+//    }
 }
