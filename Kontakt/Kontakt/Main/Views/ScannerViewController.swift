@@ -25,7 +25,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     @IBOutlet var homeButton: UIButton!
     @IBOutlet var cameraView: UIView!
-    @IBOutlet var infoTextView: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,7 +44,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.init(red: 153.0/255.0, green: 204.0/255.0, blue: 240.0/255.0, alpha: 1.0)
+        view.setGradientBackground(colorOne: #colorLiteral(red: 0, green: 0.8862745098, blue: 0.8196078431, alpha: 1), colorTwo: #colorLiteral(red: 0.2235294118, green: 0, blue: 0.5098039216, alpha: 1))
+        
+        let homeArrowImage = UIImage(named: "HomeArrow")
+        let tintedImage = homeArrowImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        homeButton.setBackgroundImage(tintedImage, for: .normal)
+        homeButton.tintColor = UIColor.white
+        
+        self.view.bringSubviewToFront(homeButton)
     }
     
     override func viewDidAppear(_ animated: Bool) {
