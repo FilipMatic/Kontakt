@@ -23,8 +23,20 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var video = AVCaptureVideoPreviewLayer()
     var previewLayer = AVCaptureVideoPreviewLayer()
     
-    @IBOutlet var homeButton: UIButton!
-    @IBOutlet var cameraView: UIView!
+    @IBOutlet private var homeButton: UIButton!
+    @IBOutlet private var cameraView: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.setGradientBackground(colorOne: #colorLiteral(red: 0, green: 0.8862745098, blue: 0.8196078431, alpha: 1), colorTwo: #colorLiteral(red: 0.2235294118, green: 0, blue: 0.5098039216, alpha: 1))
+        setupHomeButton()
+        self.view.bringSubviewToFront(homeButton)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        startSession()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,19 +54,44 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.setGradientBackground(colorOne: #colorLiteral(red: 0, green: 0.8862745098, blue: 0.8196078431, alpha: 1), colorTwo: #colorLiteral(red: 0.2235294118, green: 0, blue: 0.5098039216, alpha: 1))
-        
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        if let metadataObject = metadataObjects.first {
+            if let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject {
+                if readableObject.type == AVMetadataObject.ObjectType.qr {
+                    
+                    let alert = UIAlertController(title: "Contact Detected", message: "Save Contact?", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (nil) in
+                        self.found(code: readableObject.stringValue!)
+                        
+                        let contactInfoData = readableObject.stringValue!
+                        let contactInfoDataSplit = contactInfoData.split(separator: ",")
+                        let firstNameSplit = String(contactInfoDataSplit[0])
+                        let lastNameSplit = String(contactInfoDataSplit[1])
+                        let phoneNumberSplit = String(contactInfoDataSplit[2])
+                        let emailSplit = String(contactInfoDataSplit[3])
+                        
+                        self.importContact(firstName: firstNameSplit, lastName: lastNameSplit, phone: phoneNumberSplit, email: emailSplit as NSString)
+                        
+                    }))
+                    present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    @IBAction private func homeButtonTapped(_ sender: UIButton) {
+        scannerDelegate?.scannerDidFinishSuccessfully(true)
+    }
+    
+    private func setupHomeButton() {
         let homeArrowImage = UIImage(named: "HomeArrow")
         let tintedImage = homeArrowImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         homeButton.setBackgroundImage(tintedImage, for: .normal)
         homeButton.tintColor = UIColor.white
-        
-        self.view.bringSubviewToFront(homeButton)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    private func startSession() {
         session = AVCaptureSession()
         let captureDevice = AVCaptureDevice.default(for: .video)
         
@@ -93,11 +130,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         session.startRunning()
     }
     
-    @IBAction private func homeButtonTapped(_ sender: UIButton) {
-        scannerDelegate?.scannerDidFinishSuccessfully(true)
-    }
-    
-    private func importContact(firstName: String, lastName: String, phone: String, email: NSString, address: String) {
+    private func importContact(firstName: String, lastName: String, phone: String, email: NSString) {
         let contact = CNMutableContact()
         
         contact.givenName = firstName
@@ -106,9 +139,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         contact.phoneNumbers = [phoneNumber]
         let homeEmail = CNLabeledValue(label: CNLabelHome, value: email)
         contact.emailAddresses = [homeEmail]
-        let homeAddress = CNMutablePostalAddress()
-        homeAddress.street = address
-        contact.postalAddresses = [CNLabeledValue(label: CNLabelHome, value: homeAddress)]
         
         store = CNContactStore()
         
@@ -128,33 +158,5 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     private func found(code: String) {
         print(code)
-    }
-    
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        if let metadataObject = metadataObjects.first {
-            if let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject {
-                if readableObject.type == AVMetadataObject.ObjectType.qr {
-                    //AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-                    
-                    let alert = UIAlertController(title: "Contact Detected", message: "Save Contact?", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-                    alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (nil) in
-                        self.found(code: readableObject.stringValue!)
-                        
-                        let contactInfoData = readableObject.stringValue!
-                        let contactInfoDataSplit = contactInfoData.split(separator: ",")
-                        let firstNameSplit = String(contactInfoDataSplit[0])
-                        let lastNameSplit = String(contactInfoDataSplit[1])
-                        let phoneNumberSplit = String(contactInfoDataSplit[2])
-                        let emailSplit = String(contactInfoDataSplit[3])
-                        let addressSplit = String(contactInfoDataSplit[4])
-                        
-                        self.importContact(firstName: firstNameSplit, lastName: lastNameSplit, phone: phoneNumberSplit, email: emailSplit as NSString, address: addressSplit)
-                        
-                    }))
-                    present(alert, animated: true, completion: nil)
-                }
-            }
-        }
     }
 }
