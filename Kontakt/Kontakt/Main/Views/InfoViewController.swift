@@ -33,6 +33,9 @@ class InfoViewController: UIViewController {
     
     @IBOutlet var kontaktLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet var generateButtonTopConstraint: NSLayoutConstraint!
+    @IBOutlet var lastNameTopConstraint: NSLayoutConstraint!
+    @IBOutlet var phoneTopConstraint: NSLayoutConstraint!
+    @IBOutlet var emailTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +44,6 @@ class InfoViewController: UIViewController {
         setupHomeButton()
         setTextFieldProperties()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -52,24 +54,30 @@ class InfoViewController: UIViewController {
         homeButton.isHidden = !UserDefaults.standard.bool(forKey: "onboardingCompleted")
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
-    @objc func keyboardWillChange(_ notification: NSNotification) {
-        print("keyboard will show: \(notification.name.rawValue)")
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
         let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         
+        if kontaktLabelTopConstraint.constant != 27 {
+            return
+        }
+        
         myKontaktLabel.isHidden = true
         descriptionLabel.isHidden = true
         
-//        generateButtonTopConstraint.constant = 15
-        kontaktLabelTopConstraint.constant = kontaktLabelTopConstraint.constant - (keyboardSize.height - 100)
+        kontaktLabelTopConstraint.constant = kontaktLabelTopConstraint.constant - (keyboardSize.height - 90)
+        lastNameTopConstraint.constant = lastNameTopConstraint.constant - 15
+        phoneTopConstraint.constant = phoneTopConstraint.constant - 15
+        emailTopConstraint.constant = emailTopConstraint.constant - 15
+        generateButtonTopConstraint.constant = generateButtonTopConstraint.constant - 20
         view.layoutIfNeeded()
     }
     
@@ -79,8 +87,11 @@ class InfoViewController: UIViewController {
         myKontaktLabel.isHidden = false
         descriptionLabel.isHidden = false
         
-        kontaktLabelTopConstraint.constant = kontaktLabelTopConstraint.constant + (keyboardSize.height - 100)
-//        generateButtonTopConstraint.constant = keyboardSize
+        kontaktLabelTopConstraint.constant = kontaktLabelTopConstraint.constant + (keyboardSize.height - 90)
+        lastNameTopConstraint.constant = lastNameTopConstraint.constant + 15
+        phoneTopConstraint.constant = phoneTopConstraint.constant + 15
+        emailTopConstraint.constant = emailTopConstraint.constant + 15
+        generateButtonTopConstraint.constant = generateButtonTopConstraint.constant + 20
         view.layoutIfNeeded()
     }
     
@@ -151,7 +162,7 @@ extension InfoViewController : UITextFieldDelegate {
         } else if textField == lastName {
             phoneNumber.becomeFirstResponder()
         } else if textField == phoneNumber {
-            email.resignFirstResponder()
+            email.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
         }
