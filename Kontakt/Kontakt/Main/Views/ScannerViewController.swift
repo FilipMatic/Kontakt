@@ -62,7 +62,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                     let alert = UIAlertController(title: "Contact Detected", message: "Save Contact?", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
                     alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (nil) in
-                        self.found(code: readableObject.stringValue!)
                         
                         let contactInfoData = readableObject.stringValue!
                         let contactInfoDataSplit = contactInfoData.split(separator: ",")
@@ -150,13 +149,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     private func failed() {
-        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
         session = nil
-    }
-    
-    private func found(code: String) {
-        print(code)
     }
 }

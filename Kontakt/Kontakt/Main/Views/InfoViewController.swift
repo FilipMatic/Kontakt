@@ -82,11 +82,10 @@ class InfoViewController: UIViewController {
         kontaktLabelTopConstraint.constant = -80
         generateButtonBottomConstraint.constant = generateButtonBottomConstraint.constant + (keyboardSize.height - 30)
         
-//        kontaktLabelTopConstraint.constant = kontaktLabelTopConstraint.constant - (keyboardSize.height - 90)
         lastNameTopConstraint.constant = lastNameTopConstraint.constant - 15
         phoneTopConstraint.constant = phoneTopConstraint.constant - 15
         emailTopConstraint.constant = emailTopConstraint.constant - 15
-//        generateButtonTopConstraint.constant = generateButtonTopConstraint.constant - 20
+        
         view.layoutIfNeeded()
     }
     
@@ -101,11 +100,10 @@ class InfoViewController: UIViewController {
         kontaktLabelTopConstraint.constant = 27
         generateButtonBottomConstraint.constant = generateButtonBottomConstraint.constant - (keyboardSize.height - 30)
         
-//        kontaktLabelTopConstraint.constant = kontaktLabelTopConstraint.constant + (keyboardSize.height - 90)
         lastNameTopConstraint.constant = lastNameTopConstraint.constant + 15
         phoneTopConstraint.constant = phoneTopConstraint.constant + 15
         emailTopConstraint.constant = emailTopConstraint.constant + 15
-//        generateButtonTopConstraint.constant = generateButtonTopConstraint.constant + 20
+        
         view.layoutIfNeeded()
     }
     
@@ -125,11 +123,10 @@ class InfoViewController: UIViewController {
         
         if !UserDefaults.standard.bool(forKey: "onboardingCompleted") {
             infoDelegate?.infoDidFinishSuccessfully(false)
+            UserDefaults.standard.set(true, forKey: "onboardingCompleted")
         } else {
             infoDelegate?.infoDidFinishSuccessfully(true)
         }
-        
-        UserDefaults.standard.set(true, forKey: "onboardingCompleted")
     }
     
     private func setupView() {

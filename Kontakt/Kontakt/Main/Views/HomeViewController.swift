@@ -84,31 +84,17 @@ class HomeViewController: UIViewController {
     }
     
     private func requestPermissionsIfNeeded() {
-        if UserDefaults.standard.bool(forKey: "cameraPermission") {
-            print("already asked")
-        } else {
+        if !UserDefaults.standard.bool(forKey: "cameraPermission") {
             AVCaptureDevice.requestAccess(for: .video) { (response) in
                 UserDefaults.standard.set(true, forKey: "cameraPermission")
-                if response {
-                    print("access granted")
-                } else {
-                    print("access denied")
-                }
             }
         }
         
         let store = CNContactStore()
         
-        if UserDefaults.standard.bool(forKey: "contactPermission") {
-            print("already asked for contact")
-        } else {
+        if !UserDefaults.standard.bool(forKey: "contactPermission") {
             store.requestAccess(for: .contacts) { (granted, error) in
                 UserDefaults.standard.set(true, forKey: "contactPermission")
-                if granted {
-                    print("contact granted")
-                } else {
-                    print("contact not granted")
-                }
             }
         }
     }
