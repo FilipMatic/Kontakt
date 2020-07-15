@@ -5,6 +5,7 @@
 //  Created by Filip Matić on 2018-09-23.
 //  Copyright © 2018 Filip Matić. All rights reserved.
 //
+//  ScannerViewController class is resposible for implementing the logic for scanner screen
 
 import UIKit
 import AVFoundation
@@ -16,7 +17,7 @@ protocol ScannerCoordinationDelegate: AnyObject {
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    weak var scannerDelegate: ScannerCoordinationDelegate?
+    weak var scannerDelegate: ScannerCoordinationDelegate? // will be assigned to the instance of KontaktCoordinator
     
     var session: AVCaptureSession!
     var store: CNContactStore!
@@ -54,6 +55,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
+    // Instance method which informs the delegate that the capture output objects emitted new metadata objects
+    // Detects that a QR code is captured and prompts for user to save or cancel the detected contact
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if let metadataObject = metadataObjects.first {
             if let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject {
@@ -90,6 +93,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         homeButton.tintColor = UIColor.white
     }
     
+    // Function is responsible for starting a capture session used to detect a QR code containing contact information
     private func startSession() {
         session = AVCaptureSession()
         let captureDevice = AVCaptureDevice.default(for: .video)
@@ -109,6 +113,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             return
         }
         
+        // Captures metadata objects and forwards them to delegate object for processing
+        // Related to the instance method 'metadataOutput' found above
         let metadataOutput = AVCaptureMetadataOutput()
         
         if (session.canAddOutput(metadataOutput)) {
@@ -129,6 +135,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         session.startRunning()
     }
     
+    // Function is responsible for importing detected contact into user's contact book
     private func importContact(firstName: String, lastName: String, phone: String, email: NSString) {
         let contact = CNMutableContact()
         
@@ -139,8 +146,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         let homeEmail = CNLabeledValue(label: CNLabelHome, value: email)
         contact.emailAddresses = [homeEmail]
         
+        // Instantiate user's contacts database and an object to collects changes to save to the contacts database
         store = CNContactStore()
-        
         let saveRequest = CNSaveRequest()
         saveRequest.add(contact, toContainerWithIdentifier: nil)
         try! store.execute(saveRequest)

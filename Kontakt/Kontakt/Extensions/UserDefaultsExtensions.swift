@@ -5,6 +5,8 @@
 //  Created by Filip Matić on 2018-11-15.
 //  Copyright © 2018 Filip Matić. All rights reserved.
 //
+//  These extensions to UserDefaults are created to store user's contact & permissions information
+//  in variables that can be accessed throughout the workspace.
 
 import Foundation
 

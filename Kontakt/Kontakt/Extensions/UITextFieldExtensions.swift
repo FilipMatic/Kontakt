@@ -5,6 +5,7 @@
 //  Created by Filip Matić on 2018-11-18.
 //  Copyright © 2018 Filip Matić. All rights reserved.
 //
+//  Extensions to the UITextField class delivering custom functionalities and appearances. 
 
 import UIKit
 

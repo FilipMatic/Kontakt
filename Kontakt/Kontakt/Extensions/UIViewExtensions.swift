@@ -5,12 +5,12 @@
 //  Created by Filip Matić on 2018-12-14.
 //  Copyright © 2018 Filip Matić. All rights reserved.
 //
+//  Extension to the UIView class customizing appearance.
 
 import Foundation
 import UIKit
 
 extension UIView {
-    
     func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
         let gradient = CAGradientLayer()
         gradient.frame = bounds

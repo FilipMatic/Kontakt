@@ -13,14 +13,14 @@ import UIKit
 // swiftlint:disable explicit_type_interface identifier_name line_length type_body_length type_name
 internal enum StoryboardScene {
   internal enum Main: StoryboardType {
+    
+    // Defining the storyboard name
     internal static let storyboardName = "Main"
 
+    // Defining the view controllers in the app
     internal static let homeViewController = SceneType<Kontakt.HomeViewController>(storyboard: Main.self, identifier: "Home")
-    
     internal static let infoViewController = SceneType<Kontakt.InfoViewController>(storyboard: Main.self, identifier: "Info")
-    
     internal static let scannerViewController = SceneType<Kontakt.ScannerViewController>(storyboard: Main.self, identifier: "Scanner")
-    
     internal static let onboardingViewController = SceneType<Kontakt.OnboardingViewController>(storyboard: Main.self, identifier: "Onboarding")
   }
 }

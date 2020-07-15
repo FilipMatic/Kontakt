@@ -5,6 +5,7 @@
 //  Created by Filip Matić on 2018-09-15.
 //  Copyright © 2018 Filip Matić. All rights reserved.
 //
+//  InfoViewController class is resposible for implementing the logic for info screen
 
 import UIKit
 import PhoneNumberKit
@@ -15,7 +16,7 @@ protocol InfoCoordinationDelegate: AnyObject {
 
 class InfoViewController: UIViewController {
     
-    weak var infoDelegate: InfoCoordinationDelegate?
+    weak var infoDelegate: InfoCoordinationDelegate? // will be assigned to the instance of KontaktCoordinator
     
     private let phoneNumberKit = PhoneNumberKit()
     
@@ -48,6 +49,7 @@ class InfoViewController: UIViewController {
         setTextFieldProperties()
         loadTextFields()
         
+        // Add keyboard observers to track and react to state changes of the keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -62,10 +64,15 @@ class InfoViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    // Remove keyboard observers not handled automatically by Swift
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    // Below are two functions that dictate keyboard behaviour upon detected state changes
+    // The @objc attribute is required as an OBJ-C written framework is being used
+    // and OBJ-C features are used to interact with certain framework APIs
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
         let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
@@ -151,8 +158,13 @@ class InfoViewController: UIViewController {
         } else if currentTextField == emailTextField {
             emailTextField.resignFirstResponder()
         }
+        
+        // TODO: Look into possbility of a simple one-liner
+        // currentTextField?.resignFirstResponder()
     }
     
+    // Function is responsible for filling in the text fields with the user's previously inputted information
+    // which is saved in a key-value pair set in the UserDefaults class
     private func loadTextFields() {
         if let firstNameFieldString = UserDefaults.standard.string(forKey: "firstName") {
             firstNameTextField.text = firstNameFieldString
@@ -198,6 +210,9 @@ class InfoViewController: UIViewController {
     }
 }
 
+// Extension of the class to adopt to the UITextFieldDelegate protocol
+// and respond to changes to a textfield
+
 extension InfoViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField === firstNameTextField {
@@ -209,6 +224,9 @@ extension InfoViewController : UITextFieldDelegate {
         } else {
             textField.resignFirstResponder()
         }
+        
+        // TODO: Look into possbility of a simple one-liner
+        // textField.resignFirstResponder()
         
         return true
     }

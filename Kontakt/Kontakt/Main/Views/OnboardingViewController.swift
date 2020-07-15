@@ -5,16 +5,18 @@
 //  Created by Filip Matić on 2018-12-13.
 //  Copyright © 2018 Filip Matić. All rights reserved.
 //
+//  OnboardingViewController class is resposible for implementing the logic for onboarding screen
 
 import UIKit
 
+// Protocol implemented by the delegate of the onboarding view controller
 protocol OnboardingCoordinationDelegate: AnyObject {
     func onboardingDidFinish()
 }
 
 class OnboardingViewController: UIViewController {
 
-    weak var onboardingDelegate: OnboardingCoordinationDelegate?
+    weak var onboardingDelegate: OnboardingCoordinationDelegate? // will be assigned to the instance of KontaktCoordinator
     @IBOutlet private var getStartedButton: UIButton!
     
     override func viewDidLoad() {

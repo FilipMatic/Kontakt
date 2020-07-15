@@ -5,11 +5,12 @@
 //  Created by Filip Matić on 2018-11-17.
 //  Copyright © 2018 Filip Matić. All rights reserved.
 //
+//  Extension to the UIButton object customizing button appearance.
 
 import UIKit
 
 extension UIButton {
-    /// Setup button with inserted parameters. Leave empty to create default QuickTest button.
+    /// Setup button with inserted parameters. 
     ///
     /// - Parameters:
     ///   - masksToBounds: Default is false
